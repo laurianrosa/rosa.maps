@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eastern Puerto Rico Maps</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      background: #ffffff;
+    }
+    .wrap {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 22px;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 20px;
+      margin-top: 30px;
+    }
+    p {
+      margin: 12px 0;
+    }
+    figure {
+      margin: 16px 0 0;
+    }
+    figcaption {
+      font-size: 12px;
+      color: #555;
+      margin-top: 6px;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+    .mapframe {
+      width: 100%;
+      height: 70vh;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+    .divider {
+      height: 1px;
+      background: #eee;
+      margin: 30px 0;
+    }
+    code {
+      background: #f6f6f6;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <h1>Eastern Puerto Rico: Census + Field Mapping</h1>
+
+    <p>
+      This page presents static and interactive maps documenting population,
+      development zones, and historical change in eastern Puerto Rico,
+      with a focus on Ceiba and the former Roosevelt Roads Naval Base.
+    </p>
+
+    <div class="divider"></div>
+
+    <h2>Static Map: Population Density (ACS 2023)</h2>
+    <figure>
+      <img src="static/ceiba_population_density_2023.png"
+           alt="Population density by census tract in eastern Puerto Rico (ACS 2023)">
+      <figcaption>
+        Source: U.S. Census Bureau, ACS 2023 5-year estimates.
+      </figcaption>
+    </figure>
+
+    <div class="divider"></div>
+
+    <h2>Interactive Map: Land Use, Photos, and Historic USGS Maps</h2>
+
+    <p>
+      Use the layer control to explore development zones, conservation areas,
+      historic and field photographs, and USGS topographic maps (1946–2018).
+    </p>
+
+    <iframe class="mapframe"
+            src="interactive_ceiba.html"
+            title="Interactive map of eastern Puerto Rico">
+    </iframe>
+  </div>
+</body>
+</html>
