@@ -1,1 +1,0 @@
-PROJCS["GCS_North_American_1927",GEOGCS["GCS_Puerto Rico",DATUM["D_Puerto_Rico",SPHEROID["Clarke_1866",6378206.4,294.9786982]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]],PROJECTION["Polyconic"],PARAMETER["latitude_of_origin",18.16666999999951],PARAMETER["central_meridian",-65.5625],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]
