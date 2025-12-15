@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Eastern Puerto Rico Maps</title>
+  <title>Militarized Landscapes: Memory, population, housing, and redevelopment in eastern Puerto Rico</title>
 
   <style>
     body {
@@ -64,46 +64,68 @@
 
 <body>
   <div class="wrap">
-    <h1>Eastern Puerto Rico: Census + Field Mapping</h1>
+    <h1>Militarized Landscapes: Memory, population, housing, and redevelopment in eastern Puerto Rico</h1>
 
     <p>
-      This page presents static and interactive maps documenting population,
-      development zones, and historical change in eastern Puerto Rico,
-      with a focus on Ceiba and the former Roosevelt Roads Naval Base.
+      This webpage draws inspiration from the metaphor of space as a palimpsest, where multiple histories and meanings are written onto the landscape. My project presents a multi-layered visualization of eastern Puerto Rico, particularly the former Roosevelt Roads Naval Base, located in Ceiba. Roosevelt Roads was a naval base that the U.S. built during World War II to safeguard its interests in the Western Hemisphere. It ceased operations in 2004 after civil mobilizations requested the withdrawal of the Marines from the island municipality of Vieques, where military practices were conducted. I draw from quantitative data from the U.S. census and visual materials to trace how the landscape of Ceiba changed over Roosevelt Roads’s lifespan.
     </p>
 
     <div class="divider"></div>
+
+    <p>
+      The static maps below depict population density (people per square kilometer) and housing vacancy rates across Puerto Rico, with a focus on the eastern region of the island. Ceiba, like much of eastern Puerto Rico, is among the least densely populated municipalities. The housing vacancy map shows that the census tract encompassing the former Roosevelt Roads Naval Base exhibits a particularly high vacancy rate (45.3%).
+    </p>
+
+    <p>
+      Data from the U.S. decennial census indicate that Ceiba is one of the municipalities that experienced the most significant population decline between 2000 and 2020. Over this period, Ceiba lost approximately 33% of its population, while its housing vacancy rate increased by 20.3%.
+    </p>
 
     <h2>Static Map: Population Density (ACS 2023)</h2>
     <figure>
       <img src="static/ceiba_population_density_2023.png"
            alt="Population density by census tract in eastern Puerto Rico (ACS 2023)">
-      <figcaption>
-        Source: U.S. Census Bureau, ACS 2023 5-year estimates.
-      </figcaption>
     </figure>
-    <h2>Static Map: Housing Vacancy (ACS 2023)</h2>
-<figure>
-  <img src="static/housing_vacancy_acs2023_eastern_pr.png"
-       alt="Housing vacancy by census tract in eastern Puerto Rico (ACS 2023)">
-  <figcaption>
-    Source: U.S. Census Bureau, ACS 2023 5-year estimates.
-  </figcaption>
-</figure>
+
+    <figure>
+      <img src="static/housing_vacancy_acs2023_eastern_pr.png"
+           alt="Housing vacancy by census tract in eastern Puerto Rico (ACS 2023)">
+    </figure>
+
+    <p>
+      To obtain population, housing, and census tract geometries, I used the U.S. Census Bureau’s American Community Survey (ACS) 5-year estimates API. Because the census tract geometries provided by the Census are not spatially precise for Puerto Rico(extending into offshore islands and cays), I used an official shapefile from the Puerto Rico government’s GIS portal to clip the tracts to the island’s land area. I then joined the census tract geometries with the population and housing tables using the GEOID.
+      The original intention was to produce two change maps (2000–2020) showing population density and housing vacancy rates. This time frame was chosen because the Roosevelt Roads Naval Base ceased operations in 2004, making the subsequent two decades particularly relevant for understanding demographic and housing change, especially given that eastern Puerto Rico is frequently characterized as economically depressed and abandoned. However, census tract boundaries changed over this period, and NHGIS provides time-series tables for Puerto Rico only for 2010–2020. When attempting to map change between 2010 and 2020, the census tracts did not merge cleanly across years.
+      As a result, I chose instead to generate two maps using ACS estimates that more directly reflect the demographic and housing conditions discussed by residents in relation to Roosevelt Roads.
+    </p>
 
     <div class="divider"></div>
 
-    <h2>Interactive Map: Land Use, Photos, and Historic USGS Maps</h2>
-
-    <p>
-      Use the layer control to explore development zones, conservation areas,
-      historic and field photographs, and USGS topographic maps (1946–2018).
-    </p>
+    <h2>Interactive Map</h2>
 
     <iframe class="mapframe"
             src="interactive_ceiba.html"
             title="Interactive map of eastern Puerto Rico">
     </iframe>
+
+    <p>
+      The interactive map was designed to include contemporary planning data (conservation, development zones), historical cartography, and visual archives. The military base boundary, development zones, conservation areas, and Areas of Concern were obtained through the Roosevelt Roads Local Redevelopment Authority (updated in 2025). I edited the development zones geodataframe to include the names of the development zones listed on the Master Plan 2014. The conservation areas were merged into one geometry using union_all(). I included satellite imagery tiles as an option to toggle, since you can zoom in and see how foliage has covered the base’s installations.
+    </p>
+
+    <p>
+      The historic photos I obtained through online searches, particularly Facebook groups of Ceiba’s municipality and groups of people who used to live in Roosevelt Roads and share photos (I’m aware I’m missing the credits!). I would like to continue populating my historic photos layers and put a face to the people who lived through the base’s lifespan  and took part in the mobilizations that requested the withdrawal of the Navy.
+    </p>
+
+    <p>
+      I included a selection of field photographs that I took during site visits, marked with a bicycle emoji, which is how I have explored much of the area. Although the photos were georeferenced on my phone, I chose to manually extract their coordinates rather than incorporate the original .HEIC files directly into the interactive map, which proved to be more straightforward.
+    </p>
+
+    <p>
+      The historical USGS maps were downloaded as GeoTIFFs. Because these files were too large to load efficiently in a web environment, I converted them into compressed image formats while preserving their spatial extents. I then added them to the interactive map as ImageOverlay layers, allowing the historical maps to be viewed alongside contemporary photos. The USGS maps, the field photos and the historic photos are all hosted in GitHub.
+    </p>
+
+    <p>
+      I hope this webmap functions as a spatial palimpsest, showing different narratives of the place through quantitative data, historical oficial maps, photographs from people’s personal archives, and my own photos. I intend to continue enriching this project as I begin my fieldwork next year.
+    </p>
+
   </div>
 </body>
 </html>
